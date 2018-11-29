@@ -11,10 +11,13 @@ echo $CURRENT_DIR
 [ -f "$CURRENT_DIR/config.conf" ] && source $CURRENT_DIR/config.conf || echo "ERROR: No config file found at $CURRENT_DIR/config.conf"
 
 # make the required foders
-mkdir -p $CURRENT_DIR/prometheus/config
-mkdir -p $CURRENT_DIR/prometheus/data
-mkdir -p $CURRENT_DIR/grafana/etc
-mkdir -p $CURRENT_DIR/grafana/var_lib
+#mkdir -p $CURRENT_DIR/prometheus/config
+#mkdir -p $CURRENT_DIR/prometheus/data
+#mkdir -p $CURRENT_DIR/grafana/etc
+#mkdir -p $CURRENT_DIR/grafana/var_lib
+
+mkdir -p $CURRENT_DIR/prometheus/
+mkdir -p $CURRENT_DIR/grafana/
 
 # install docker
 sudo apt-get update
@@ -77,7 +80,7 @@ docker run -d \
     --name="grafana" \
     --restart="unless-stopped" \
     -v $CURRENT_DIR/grafana/etc:/etc/grafana \
-    -v "$CURRENT_DIR/grafana/var_lib:/var/lib/grafana" \
+    -v $CURRENT_DIR/grafana/var_lib:/var/lib/grafana \
     --link=prometheus:prometheus \
     --memory-swap=$RAM_MAX_SWAP \
     --memory $RAM_MAX_Grafana \
