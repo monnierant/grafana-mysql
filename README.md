@@ -1,11 +1,18 @@
-# grafana-mysql
-A docker combinaison of Grafana Prometheus and Mysqld Exporter
-
+# Grafana for mysql in Docker
 The purpose of this script is to capture the data of one of your database to showcase it.
 
 The database can be located anywhere.
-
 ## How to use it
+Clone the repository
+Edit the config file
+
+    config.conf
+
+Then run
+
+    sudo ./startup.sh
+
+## How to customize it
 The config.conf file contain almoste all of the configuration avaliable for the script.
 
 ### Prometheus
@@ -36,13 +43,15 @@ Especially for rights of the users to connect to the database.
 ### Grafana
 
 Grafana need to get a password setup for the first startup.
-
 The port will be used to publish grafana access on the server so you can then connect to grafana by going to http://localhost:3000.
 
 
     PORT_Grafana=3000
     GRAFANA_PASSWORD=password
 
+Grafana got a configuration file under
+
+    grafana/etc/grafana.ini
 More information about grafana can be found at:
 https://hub.docker.com/r/grafana/grafana/
 
@@ -79,6 +88,4 @@ This script will install docker and startup 3 containers.
  1. MysqlD-Exporter that will extract the data's from the Mysql server at a specific time
  2. Prometheus that will collect datas from the MysqlD-Exporter and retain those datas
  3. Grafana that will showcase datas from Prometheus into dashboards
-
-
 
