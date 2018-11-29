@@ -63,6 +63,15 @@ You can controll the ammoun of ram of every docker container
     RAM_MAX_Controll_Prometheus=150m
     RAM_MAX_Controll_Grafana=100m
 
+## Data storage
+
+Datas are stored into 4 folders next to the script
+
+    mkdir -p $CURRENT_DIR/prometheus/config
+    mkdir -p $CURRENT_DIR/prometheus/data
+    mkdir -p $CURRENT_DIR/grafana/etc
+    mkdir -p $CURRENT_DIR/grafana/var_lib
+
 ## How it works
 
 This script will install docker and startup 3 containers.
@@ -70,4 +79,6 @@ This script will install docker and startup 3 containers.
  1. MysqlD-Exporter that will extract the data's from the Mysql server at a specific time
  2. Prometheus that will collect datas from the MysqlD-Exporter and retain those datas
  3. Grafana that will showcase datas from Prometheus into dashboards
+
+
 
