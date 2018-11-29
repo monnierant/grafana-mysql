@@ -2,6 +2,7 @@
 The purpose of this script is to capture the data of one of your database to showcase it.
 
 The database can be located anywhere.
+
 ## How to use it
 Clone the repository
 Edit the config file
@@ -11,6 +12,14 @@ Edit the config file
 Then run
 
     sudo ./startup.sh
+
+Then connect to http://localhost:3000 with **admin** and **password** (or the password setup in config.conf)
+
+Add a datasource like this
+
+ - Name: Prometheus
+ - Type: Prometheus
+ - URL: http://prometheus:9090
 
 ## How to customize it
 The config.conf file contain almoste all of the configuration avaliable for the script.
