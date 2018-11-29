@@ -62,6 +62,7 @@ echo "------------------------------------"
 echo "Start Prometheus"
 echo "------------------------------------"
 docker run -d \
+    -u 0:0 \
     --name="prometheus" \
     --restart="unless-stopped" \
     -v $CURRENT_DIR/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml \
@@ -76,6 +77,7 @@ echo "------------------------------------"
 echo "Start grafana"
 echo "------------------------------------"
 docker run -d \
+    -u 0:0 \
     -p $PORT_Grafana:3000 \
     --name="grafana" \
     --restart="unless-stopped" \
