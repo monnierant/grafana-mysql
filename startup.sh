@@ -25,9 +25,6 @@ sudo apt-get install -y curl
 sudo apt-get install -y unzip
 
 
-sudo curl -fsSL https://get.docker.com/ | sh
-
-
 echo "------------------------------------"
 echo "Stop and Remove docker containers"
 echo "------------------------------------"
